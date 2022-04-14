@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "CRUDelicious";
+}
+
+@model List<Dish>
+
+<h1 class="text-center">Welcome to CRUDelicious</h1>
+<div class="card">
+    <div class="card-body">
+        <h3>Recent Dishes</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Chef</th>
+                <th>Calories</th>
+                <th>Rating</th>
+            </tr>
+            @foreach (Dish dish in Model)
+            {
+                <tr>
+                    <td><a asp-controller="Dish" asp-action="Details" asp-route-dishId="@dish.DishId">@dish.Name</a></td>
+                    <td>@dish.Chef</td>
+                    <td>@dish.Calories</td>
+                    <td>@dish.Tastiness</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
